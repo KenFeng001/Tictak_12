@@ -1,0 +1,283 @@
+:root {
+    --red: #b44636;
+    --blue: #5f93c4;
+    --draw——grey: #9d9d9d;
+    --back-ground-color: #ffc107;
+    --text-color: #333333;
+    --cell-defaul-color: #22122;
+    --cell-hover-color: #123123;
+}
+
+html {
+    zoom: 1;
+    touch-action: manipulation;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background: #d7d7d7;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.logo{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+    margin-left: -18rem;
+}
+
+#reload{
+    margin-right: 1rem;
+}
+#how_to_play{
+    margin-right: 1rem;
+}
+@media (prefers-color-scheme: dark) {
+
+}
+.main_part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main_x{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.main_x[occupied="2"]{
+    position: relative;
+    z-index: 1;
+    background: var(--red);
+}
+
+.main_x[occupied="1"]{
+    position: relative;
+    z-index: 1;
+    background: var(--blue);
+}
+
+.main_x[occupied="3"]{
+    position: relative;
+    z-index: 1;
+    background: var(--draw——grey);
+}
+.board{
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /*background: aquamarine;*/
+    flex-wrap: wrap;
+    transform: translateY(-80px);
+}
+
+.board[active="true"][current_player="1"]{
+    outline: 5px solid var(--blue);
+}
+
+.board[active="true"][current_player="2"]{
+    outline: 5px solid;
+    outline-color: var(--red);
+}
+.main_y{
+    height: 30%;
+    /*background: red;*/
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.main_x[active="true"][current_player="1"] {
+    outline: 5px solid var(--blue);
+}
+
+.main_x[active="true"][current_player="2"] {
+    outline: 5px solid;
+    outline-color: var(--red);
+;
+}
+
+.sub_y{
+    height: 30%;
+    /*background: green;*/
+    display: flex;
+    position: relative;
+    z-index: 2;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cell{
+    position: relative;
+    width: 20%;
+    height: 70%;
+    background: #bdbdbd;
+    z-index: 0;
+}
+
+.cell[state="1"]{
+    background: var(--blue);
+    position: relative;
+    z-index: 2;
+}
+.cell:not([disabled]):hover {
+    background-color: #cbcbcb;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transform: translateY(-10px);
+    animation: hoverAnimation 1s infinite alternate;
+}
+
+.cell[disappeared="true"]{
+    visibility: hidden;
+}
+.cell.clicked {
+    pointer-events: none; /* Disable hover effect when clicked */
+}
+
+
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.cell[state="2"] {
+    background: var(--red);
+    position: relative;
+    z-index: 2;
+}
+
+.topbar{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.result_display{
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+dialog.result_display[result="1"]{
+    background: var(--blue);
+}
+
+dialog.result_display[result="2"]
+{
+    background: var(--red);
+}
+
+dialog.result_display[result="3"]
+{
+    background: var(--draw——grey);
+}
+.restart_word {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    animation: floatAnimation 2s infinite alternate;
+}
+.who_win {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30vh;
+    animation: floatAnimation 2s infinite alternate;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.buttons #reload:hover,
+.buttons #about:hover, .buttons #how_to_play:hover{
+    /* background-color: #cbcbcb; */
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transform: translateY(-10px);
+    animation: hoverAnimation 1s infinite alternate;
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.logo span {
+    margin-right: 0.05rem;
+    color: black; 
+    transition: color 0.3s ease-in-out;
+}
+
+.logo:hover span:nth-child(odd) {
+    color: var(--red); 
+}
+
+.logo:hover span:nth-child(even) {
+    color: var(--blue); 
+}
+
+.popup_title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+}
+
+.popup_message{
+    margin-top: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.transparent {
+    opacity: 0.5;
+}
+

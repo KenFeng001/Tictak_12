@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<script src="main.js" type="module"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tic_tak_toe*3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<intro>
+    
+</intro>
+<body>
+    <div class="topbar">
+        <div class="logo">
+            <span>T</span>
+            <span>i</span>
+            <span>c</span>
+            <span>-</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>-</span>
+            <span>t</span>
+            <span>o</span>
+            <span>e</span>
+            <span>*</span>
+            <span>3</span>
+        </div>
+        <div class="buttons">
+            <div id="how_to_play" tabindex = 0 aria-label="reload game" >How to play</div>
+            <div id="reload" tabindex = 0 aria-label="reload game" >Reload</div>
+            <div id="about" tabindex = 0 aria-label="about">About</div></div>
+
+    </div>
+    <div class="main_part">
+        <div class="board" active="true" current_player="blue">
+    </div>
+
+    <dialog class="result_display" result="0" >
+        <div class="who_win" >yeessss sir</div>
+        <div class="restart_word">click any location to start new game</div>
+    </dialog>
+
+    <dialog id="how_to_play_dialog" class="popup_dialog">
+        <div class="popup_content">
+            <div class="popup_title">How to play</div>
+            <div class="popup_message">
+                Just treat this like a normal Tic_tak_toe game!Except that you have to first win<br>
+                a main cell by placing a move on a small cell, then connect 3 main cells to win.<br>
+                Remember, your play on the small cell will determine which maincell the next <br>
+                player can place.
+            </div>
+        </div>
+    </dialog>
+
+</body>
